@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
   marginRight: {
     marginRight: theme.spacing(2),
   },
@@ -27,7 +30,7 @@ const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <ResumeIcon className={classes.marginRight} fontSize="large" />
           <Typography variant="h6" className={classes.title}>
