@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// MUI
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,14 +29,24 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          <ResumeIcon className={classes.marginRight} />
+          <ResumeIcon className={classes.marginRight} fontSize="large" />
           <Typography variant="h6" className={classes.title}>
             Resume Builder
           </Typography>
-          <Button color="inherit" className={classes.marginRight}>
+          <Button
+            color="inherit"
+            className={classes.marginRight}
+            component={Link}
+            to={'/'}
+          >
             Home
           </Button>
-          <Button color="inherit" className={classes.marginRight}>
+          <Button
+            color="inherit"
+            className={classes.marginRight}
+            component={Link}
+            to={'/editor'}
+          >
             Editor
           </Button>
           <Button color="inherit">Login</Button>
