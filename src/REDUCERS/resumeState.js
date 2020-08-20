@@ -29,8 +29,10 @@ export const resumeState = {
     full_name: {
       family: 'Montserrat',
       size: 30,
-      color: 'white',
-      style: 'none',
+      color: 'black',
+      // color: 'white',
+      italic: false,
+      bold: false,
     },
     description: {
       family: 'Tinos',

@@ -9,7 +9,9 @@ import { updateText } from '../../ACTIONS/resumeActions';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
+// Styles
 const useStyles = makeStyles((theme) => ({
+  // TextField components styling
   InputRoot: {
     // For keeping hover border when value !== ''
     '&:hover:not($focused) $notchedOutlineWithText': {
@@ -26,6 +28,15 @@ const useStyles = makeStyles((theme) => ({
   },
   regularProperties: {},
   focused: {},
+
+  // Font
+  fontStyle: {
+    fontFamily: 'var(--font-family)',
+    fontSize: 'var(--font-size)',
+    color: 'var(--font-color)',
+    fontWeight: 'var(--font-weight)',
+    fontStyle: 'var(--font-style)',
+  },
 }));
 
 const Input = ({ id, text, font, label, updateText }) => {
@@ -56,6 +67,13 @@ const Input = ({ id, text, font, label, updateText }) => {
       onBlur={onFocusOut}
       onMouseOver={toggleHover}
       onMouseLeave={toggleHover}
+      style={{
+        '--font-family': `${font.family}`,
+        '--font-size': `${font.size}px`,
+        '--font-color': `${font.color}`,
+        '--font-weight': `${font.bold ? 'bold' : 'normal'}`,
+        '--font-style': `${font.italic ? 'italic' : 'normal'}`,
+      }}
       InputProps={{
         classes: {
           root: classes.InputRoot,
@@ -63,6 +81,7 @@ const Input = ({ id, text, font, label, updateText }) => {
           notchedOutline: value
             ? classes.notchedOutlineWithText
             : classes.regularProperties,
+          input: classes.fontStyle,
         },
       }}
       InputLabelProps={{
