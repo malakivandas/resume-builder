@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 // Components
-import SideBar from '../resume/SideBar';
+import SideBar from '../editor/SideBar';
+import Resume from '../editor/Resume';
 
 // MUI
 import { makeStyles } from '@material-ui/core/styles';
@@ -52,20 +53,22 @@ const Editor = () => {
         })}
       >
         <Grid container>
-          <Grid item xs={0} sm={2}>
+          <Grid item xs={false} sm={2}>
             <IconButton onClick={toggleDrawer}>
               {drawer ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </Grid>
-          <Grid item xs={12} sm={8}>
-            <div
-              style={{ width: '100%', height: '100%', backgroundColor: 'red' }}
-            >
-              {' '}
-              Hello{' '}
-            </div>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            container
+            direction="column"
+            alignItems="stretch"
+          >
+            <Resume />
           </Grid>
-          <Grid item xs={0} sm={2}></Grid>
+          <Grid item xs={false} sm={2}></Grid>
         </Grid>
       </main>
     </div>

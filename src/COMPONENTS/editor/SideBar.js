@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 
+// Components
+import Options from './Options';
+
 // MUI
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -29,7 +32,7 @@ const SideBar = ({ open, drawerWidth }) => {
         classes={{ paper: classes.drawerPaper }}
       >
         <Toolbar />
-        Hello
+        <Options />
         <Divider />
       </Drawer>
     </Fragment>
