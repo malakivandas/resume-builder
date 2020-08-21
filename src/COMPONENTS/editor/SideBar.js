@@ -7,33 +7,31 @@ import Options from './Options';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
+
+const useStyles = makeStyles((theme) => ({
+  drawer: {
+    width: 'var(--drawer-width)',
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: 'var(--drawer-width)',
+  },
+}));
 
 const SideBar = ({ open, drawerWidth }) => {
-  const useStyles = makeStyles((theme) => ({
-    drawer: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-    drawerPaper: {
-      width: drawerWidth,
-    },
-  }));
-
   const classes = useStyles();
 
   return (
     <Fragment>
       <Drawer
-        className={classes.drawer}
+        classes={{ root: classes.drawer, paper: classes.drawerPaper }}
         variant="persistent"
         anchor="left"
         open={open}
-        classes={{ paper: classes.drawerPaper }}
+        style={{ '--drawer-width': `${drawerWidth}px` }}
       >
         <Toolbar />
         <Options />
-        <Divider />
       </Drawer>
     </Fragment>
   );
