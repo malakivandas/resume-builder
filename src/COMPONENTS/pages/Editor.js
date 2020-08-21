@@ -15,17 +15,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(2),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: 0,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -33,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: drawerWidth,
+  },
+  resumeGrid: {
+    border: '1px solid rgba(0, 0, 0, 0.12)',
+    padding: theme.spacing(1.5),
   },
 }));
 
@@ -45,7 +44,7 @@ const Editor = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <SideBar open={drawer} drawerWidth={drawerWidth} />
       <main
         className={clsx(classes.content, {
@@ -65,6 +64,7 @@ const Editor = () => {
             container
             direction="column"
             alignItems="stretch"
+            classes={{ root: classes.resumeGrid }}
           >
             <Resume />
           </Grid>

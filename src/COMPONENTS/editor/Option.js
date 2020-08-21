@@ -14,9 +14,9 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
-  accordianDetails: {
-    flexDirection: 'column',
-  },
+  // accordianDetails: {
+  //   flexDirection: 'column',
+  // },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -55,17 +55,18 @@ const Option = ({ title, stateKey }) => {
       <AccordionSummary>
         <Typography variant="h5">{title}</Typography>
       </AccordionSummary>
-      <AccordionDetails className={classes.accordianDetails}>
-        <Typography variant="h6">Font</Typography>
+      {/* <AccordionDetails classes={{ root: classes.accordianDetails }}> */}
+      <AccordionDetails>
         <Grid container direction="column">
-          <FormControl className={classes.formControl}>
+          <Typography variant="h6">Font</Typography>
+          <FormControl classes={{ root: classes.formControl }}>
             <InputLabel id="demo-simple-select-label">Family</InputLabel>
             <Select value={family} onChange={handleChange1}>
               <MenuItem value={'Monserrat'}>Monserrat</MenuItem>
               <MenuItem value={'Tinos'}>Tinos</MenuItem>
             </Select>
           </FormControl>
-          <FormControl className={classes.formControl}>
+          <FormControl classes={{ root: classes.formControl }}>
             <InputLabel id="demo-simple-select-label">Size</InputLabel>
             <Select value={size} onChange={handleChange2}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
@@ -77,7 +78,7 @@ const Option = ({ title, stateKey }) => {
               )}
             </Select>
           </FormControl>
-          <FormControl className={classes.formControl}>
+          <FormControl classes={{ root: classes.formControl }}>
             <InputLabel id="demo-simple-select-label">Color</InputLabel>
             <Select value={color} onChange={handleChange3}>
               <MenuItem value={'red'}>Red</MenuItem>
@@ -85,7 +86,7 @@ const Option = ({ title, stateKey }) => {
               <MenuItem value={'blue'}>Blue</MenuItem>
             </Select>
           </FormControl>
-          <FormControl className={classes.formControl}>
+          <FormControl classes={{ root: classes.formControl }}>
             <InputLabel id="demo-simple-select-label">Style</InputLabel>
             <Select value={style} onChange={handleChange4}>
               <MenuItem value={'regular'}>Regular</MenuItem>

@@ -12,6 +12,9 @@ import TextField from '@material-ui/core/TextField';
 // Styles
 const useStyles = makeStyles((theme) => ({
   // TextField components styling
+  root: {
+    margin: theme.spacing(1, 0),
+  },
   InputRoot: {
     // For keeping hover border when value !== ''
     '&:hover:not($focused) $notchedOutlineWithText': {
@@ -26,11 +29,17 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  InputLabelTransform: {
+    transform:
+      'translate(14px, calc(1.1876 * var(--font-size) / 2 + 12px - 0.5rem))',
+  },
   regularProperties: {},
   focused: {},
 
-  // Font
-  fontStyle: {
+  input: {
+    padding: theme.spacing(1.5, 2),
+
+    // Font
     fontFamily: 'var(--font-family)',
     fontSize: 'var(--font-size)',
     color: 'var(--font-color)',
@@ -39,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Input = ({ id, text, font, label, updateText }) => {
+const Input = ({ textId, text, font, label, updateText }) => {
   const classes = useStyles();
 
   const [value, setValue] = useState(text);
@@ -50,7 +59,7 @@ const Input = ({ id, text, font, label, updateText }) => {
   };
 
   const onFocusOut = () => {
-    updateText(id, value);
+    updateText(textId, value);
   };
 
   const toggleHover = () => {
@@ -67,6 +76,7 @@ const Input = ({ id, text, font, label, updateText }) => {
       onBlur={onFocusOut}
       onMouseOver={toggleHover}
       onMouseLeave={toggleHover}
+      classes={{ root: classes.root }}
       style={{
         '--font-family': `${font.family}`,
         '--font-size': `${font.size}px`,
@@ -81,7 +91,7 @@ const Input = ({ id, text, font, label, updateText }) => {
           notchedOutline: value
             ? classes.notchedOutlineWithText
             : classes.regularProperties,
-          input: classes.fontStyle,
+          input: classes.input,
         },
       }}
       InputLabelProps={{
@@ -92,6 +102,7 @@ const Input = ({ id, text, font, label, updateText }) => {
             ? classes.regularProperties
             : classes.InputLabelRootWithTextNonHover,
           focused: classes.focused,
+          outlined: classes.InputLabelTransform,
         },
       }}
     ></TextField>

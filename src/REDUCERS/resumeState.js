@@ -2,6 +2,8 @@ export const resumeState = {
   // ----------------- Static -----------------
   labels: {
     full_name: 'Full Name',
+    project_title: 'Project Title',
+    project_description: 'Project Description',
   },
 
   // ----------------- Template -----------------
@@ -58,7 +60,7 @@ export const resumeState = {
       color: 'black',
       style: 'italic',
     },
-    experience_list: {
+    experience_description: {
       family: 'Tinos',
       size: 14,
       color: 'black',
@@ -82,6 +84,20 @@ export const resumeState = {
       color: 'black',
       style: 'italic',
     },
+    project_title: {
+      family: 'Montserrat',
+      size: 12,
+      color: 'black',
+      italic: false,
+      bold: true,
+    },
+    project_description: {
+      family: 'Tinos',
+      size: 14,
+      color: 'black',
+      italic: false,
+      bold: false,
+    },
     skill: {
       family: 'Tinos',
       size: 14,
@@ -94,7 +110,7 @@ export const resumeState = {
       color: 'black',
       style: 'bold',
     },
-    highskill_list: {
+    highskill_description: {
       family: 'Tinos',
       size: 14,
       color: 'black',
@@ -147,12 +163,12 @@ export const resumeState = {
 
   projects: [
     {
-      id: 5,
+      // id: 5,
       title: 'c3',
       text: ['c4', 'c5', 'c6'],
     },
     {
-      id: 6,
+      // id: 6,
       title: 'c7',
       text: ['c8', 'c9', 'd0'],
     },

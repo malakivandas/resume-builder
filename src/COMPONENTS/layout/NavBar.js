@@ -10,9 +10,6 @@ import Button from '@material-ui/core/Button';
 import ResumeIcon from '@material-ui/icons/Assignment';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
   },
@@ -29,16 +26,19 @@ const NavBar = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appBar}>
+    <div>
+      <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar>
-          <ResumeIcon className={classes.marginRight} fontSize="large" />
-          <Typography variant="h6" className={classes.title}>
+          <ResumeIcon
+            classes={{ root: classes.marginRight }}
+            fontSize="large"
+          />
+          <Typography variant="h6" classes={{ root: classes.title }}>
             Resume Builder
           </Typography>
           <Button
             color="inherit"
-            className={classes.marginRight}
+            classes={{ root: classes.marginRight }}
             component={Link}
             to={'/'}
           >
@@ -46,13 +46,12 @@ const NavBar = () => {
           </Button>
           <Button
             color="inherit"
-            className={classes.marginRight}
+            classes={{ root: classes.marginRight }}
             component={Link}
             to={'/editor'}
           >
             Editor
           </Button>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
       <div className={classes.toolbar} />
