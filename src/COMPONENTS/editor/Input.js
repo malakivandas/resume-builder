@@ -48,10 +48,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Input = ({ textId, text, font, label, updateText }) => {
+const Input = ({ textKey, text, font, updateText }) => {
   const classes = useStyles();
 
   const [value, setValue] = useState(text);
+  const [temp, setTemp] = useState(text);
   const [hover, setHover] = useState(false);
 
   const onChange = (e) => {
@@ -59,7 +60,10 @@ const Input = ({ textId, text, font, label, updateText }) => {
   };
 
   const onFocusOut = () => {
-    updateText(textId, value);
+    if (value !== temp) {
+      updateText(textKey, value);
+    }
+    setTemp(value);
   };
 
   const toggleHover = () => {
@@ -69,8 +73,8 @@ const Input = ({ textId, text, font, label, updateText }) => {
   return (
     <TextField
       variant="outlined"
-      value={value}
-      label={label}
+      value={value ? value : ''}
+      label={font.label}
       fullWidth
       onChange={onChange}
       onBlur={onFocusOut}

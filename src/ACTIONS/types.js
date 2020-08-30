@@ -1,1 +1,4 @@
 export const UPDATE_TEXT = 'UPDATE_TEXT';
+export const UPDATE_FONT = 'UPDATE_FONT';
+export const UPDATE_INCLUDE_SECTION = 'UPDATE_INCLUDE_SECTION';
+export const CLEAR_ALL_TEXT = 'CLEAR_ALL_TEXT';

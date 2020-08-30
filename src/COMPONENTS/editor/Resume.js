@@ -13,36 +13,43 @@ import Input from './Input';
 import Divider from '@material-ui/core/Divider';
 
 const Resume = ({ resume }) => {
+  const { applicant_name, projects, fonts, active_sections, text } = resume;
+
   return (
     <Fragment>
-      <Input
-        textId={resume.full_name}
-        text={resume.text[resume.full_name]}
-        font={resume.fonts.full_name}
-        label={resume.labels.full_name}
-      />
+      {/* Applicant Name */}
+      {active_sections.applicant_name && (
+        <Input
+          textKey={applicant_name}
+          text={text[applicant_name]}
+          font={fonts.applicant_name}
+        />
+      )}
       <Divider />
-      {resume.projects.map((project) => {
-        return (
-          <Fragment key={project.title}>
-            <Input
-              textId={project.title}
-              text={resume.text[project.title]}
-              font={resume.fonts.project_title}
-              label={resume.labels.project_title}
-            />
-            {project.text.map((textId) => (
-              <Input
-                key={textId}
-                textId={textId}
-                text={resume.text[textId]}
-                font={resume.fonts.project_description}
-                label={resume.labels.project_description}
-              />
-            ))}
-          </Fragment>
-        );
-      })}
+      {/* Projects */}
+      {active_sections.projects &&
+        projects.allIds.map((projectId) => {
+          return (
+            <Fragment key={projects[projectId].title}>
+              {active_sections.project_title && (
+                <Input
+                  textKey={projects[projectId].title}
+                  text={text[projects[projectId].title]}
+                  font={fonts.project_title}
+                />
+              )}
+              {active_sections.project_description &&
+                projects[projectId].text.map((textKey) => (
+                  <Input
+                    key={textKey}
+                    textKey={textKey}
+                    text={text[textKey]}
+                    font={fonts.project_description}
+                  />
+                ))}
+            </Fragment>
+          );
+        })}
     </Fragment>
   );
 };
